@@ -8,10 +8,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $fullname = isset($_POST['username']);
     $email = isset($_POST['email']);
     $message = isset($_POST['message']);
-}
 
 
-function email_verification($fullname, $email, $email_subject,  $email_template){
+$email_subject = 'Hello  you get email from' . $fullname;
+
+            
     $mail = new PHPMailer(true);
 
     try {
@@ -32,7 +33,7 @@ function email_verification($fullname, $email, $email_subject,  $email_template)
         // Content
         $mail->isHTML(true);
         $mail->Subject = $email_subject;                               
-        $mail->Body = $email_template;
+        $mail->Body = $message;
 
         $mail->send();
         return true; 
@@ -40,6 +41,5 @@ function email_verification($fullname, $email, $email_subject,  $email_template)
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         return false; // Indicate failure
     }
-}
 
-?>
+}

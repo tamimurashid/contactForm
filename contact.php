@@ -18,7 +18,7 @@
         <div class="container-fluid mt-5 my-5 justify-content-end">
             <div class="row bg-light">
                 <div class="col-lg-4 py-5">
-                    <form action="#" method="post">
+                    <form action="email-processor.php" method="post">
                             <label  class="text-center text-muted mb-2"for="contactform">Contact Form</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1">@</span>
