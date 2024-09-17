@@ -27,8 +27,8 @@ $email_subject = 'Hello  you get email from' . ' '. $fullname;
         $mail->Port       = 465;      //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
                               
 
-        $mail->setFrom($youremail, $fullname);
-        $mail->addAddress($email); 
+        $mail->setFrom($email, $fullname);
+        $mail->addAddress($youremail); 
 
         // Content
         $mail->isHTML(true);
@@ -36,7 +36,7 @@ $email_subject = 'Hello  you get email from' . ' '. $fullname;
         $mail->Body = $message;
 
         $mail->send();
-        header('Location: contact.html');
+        header('Location: email-succes.html');
         exit();
         // return true; 
         
