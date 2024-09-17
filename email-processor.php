@@ -36,13 +36,13 @@ $email_subject = 'Hello  you get email from' . ' '. $fullname;
         $mail->Body = $message;
 
         $mail->send();
-        header('Location: contact.php');
+        header('Location: contact.html');
         exit();
         // return true; 
         
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-        header('Location: contact.php');
+        header('Location: contact.html');
         exit();
     }
 
