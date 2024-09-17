@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $message = isset($_POST['message']) ? $_POST['message'] : '';
 
 
-$email_subject = 'Hello  you get email from' . ' '. $fullname;
+$email_subject = 'Hello  you get email from' . ' '. $fullname. ' '. 'with email address '. $email;
 
             
     $mail = new PHPMailer(true);
