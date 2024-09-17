@@ -5,9 +5,9 @@ require 'vendor/autoload.php'; // Use Composer's autoloader
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-    $fullname = isset($_POST['username']);
-    $email = isset($_POST['email']);
-    $message = isset($_POST['message']);
+    $fullname = isset($_POST['username']) ? $_POST['username'] : '';
+    $email = isset($_POST['email']) ? $_POST['email'] : '';
+    $message = isset($_POST['message']) ? $_POST['message'] : '';
 
 
 $email_subject = 'Hello  you get email from' . $fullname;
