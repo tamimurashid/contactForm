@@ -10,13 +10,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $message = isset($_POST['message']) ? $_POST['message'] : '';
 
 
-$email_subject = 'Hello  you get email from' . $fullname;
+$email_subject = 'Hello  you get email from' . ' '. $fullname;
 
             
     $mail = new PHPMailer(true);
 
     try {
-        $mail->SMTPDebug = 2; // Enable detailed debug output
+        //$mail->SMTPDebug = 2; // Enable detailed debug output
 
         $mail->isSMTP();                                            
         $mail->Host       = 'smtp.gmail.com'; //Set the SMTP server to send                       
@@ -36,10 +36,14 @@ $email_subject = 'Hello  you get email from' . $fullname;
         $mail->Body = $message;
 
         $mail->send();
-        return true; 
+        header('Location: contact.php');
+        exit();
+        // return true; 
+        
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-        return false; // Indicate failure
+        header('Location: contact.php');
+        exit();
     }
 
 }
