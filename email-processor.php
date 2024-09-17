@@ -10,8 +10,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $message = isset($_POST['message']) ? $_POST['message'] : '';
 
 
-$email_subject = 'Hello  you get email from' . ' '. $fullname. ' '. 'with email address '. $email;
-
+    // Email content
+    $email_subject = "Message from $fullname";
+    $email_template = "
+        <html>
+        <body>
+            <h2>New message from your contact form</h2>
+            <p><strong>Name:</strong> $fullname</p>
+            <p><strong>Email:</strong> $email</p>
+            <p><strong>Message:</strong><br>$message</p>
+        </body>
+        </html>";
             
     $mail = new PHPMailer(true);
 
@@ -33,7 +42,7 @@ $email_subject = 'Hello  you get email from' . ' '. $fullname. ' '. 'with email 
         // Content
         $mail->isHTML(true);
         $mail->Subject = $email_subject;                               
-        $mail->Body = $message;
+        $mail->Body = $email_template;
 
         $mail->send();
         header('Location: email-succes.html');
